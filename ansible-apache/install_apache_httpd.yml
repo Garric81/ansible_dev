@@ -1,8 +1,7 @@
 ---
 
 - name: this playbook is to install packages
-
-  hosts: web
+- hosts: web
 
   become: true
 
