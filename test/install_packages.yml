@@ -1,0 +1,9 @@
+- - -
+- name: this playbook is to install packages
+  hosts: all           (want to install on specific servers so i have given group name here)
+  become: true
+  tasks:
+  - name: install package
+    yum:
+       name: git
+       state: installed
