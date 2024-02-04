@@ -17,3 +17,10 @@
     - name: Print all available services
       debug:
         var: ansible_facts.services
+#установленные пакеты. Используем package_facts
+    - name: Gather the package facts
+      package_facts:
+        manager: auto
+    - name: Print all available packages
+      debug:
+        var: ansible_facts.packages
