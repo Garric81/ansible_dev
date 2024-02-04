@@ -10,3 +10,10 @@
     - name: Print all available facts
       debug:
         var: ansible_facts.hostname
+
+    - name: Populate service facts
+      ansible.builtin.service_facts:
+
+    - name: Print all available services
+      debug:
+        var: ansible_facts.services
