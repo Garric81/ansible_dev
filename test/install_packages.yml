@@ -1,4 +1,5 @@
 ---
+# DEMO НЕ использовать
 - name: this playbook is to install packages
   hosts: all
   become: true
