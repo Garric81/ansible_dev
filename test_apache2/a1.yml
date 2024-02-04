@@ -3,21 +3,19 @@
   gather_facts: true
   become: true
   tasks:
-    -
-      name: "1. Install Latest HTTPD/Apache"
+    - name: "1. Install Latest HTTPD/Apache"
       tags: install_apache
       apt:
         name: httpd
         state: present
-    -
-      name: "2. Copy dummy index.html file”
+    - name: "2. Copy dummy index.html file”
       tags: copy_index_file
       copy:
         src: /tmp/index.html
         dest: /var/www/html/index.html
         mode: '0664'
-    - 
-      name: "3. Start httpd service"
+        
+    - name:  "3. Start httpd service"
       tags: start_apache
       service:
         enabled: true
