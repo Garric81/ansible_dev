@@ -5,6 +5,6 @@
   vars:
     user: boni
   tasks:
-  - name: creating user john
+  - name: creating user boni
     user:
       name: “{{ user }}”
