@@ -1,0 +1,28 @@
+---
+- hosts: web
+  become: yes
+  gather_facts: yes
+  tasks:
+    - name: install apache webserver in ubuntu server.
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+    - name: start Apache2 server.
+      service:
+        name: apache2
+        state: started
+    - name: Get the install apache version
+      command: 'apache2 -v'
+      register: version
+    - debug:
+      var: version.stdout_lines
+    - name: Remove Apache server from Ubuntu server.
+      apt:
+       name: apache2
+       state: absent
+       update_cache: yes
+    - name: Remove unwanted Apache2 packages from the system.
+      apt:
+      autoremove: yes
+      purge: yes
