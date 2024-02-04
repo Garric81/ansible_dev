@@ -5,3 +5,9 @@
   tasks:
     - name: Install latest version of Apache
       apt: name=apache2 update_cache=yes state=latest
+
+  handlers:
+    - name: Restart apache
+      ansible.builtin.service:
+        name: httpd
+        state: restarted
