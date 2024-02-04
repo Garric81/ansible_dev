@@ -1,5 +1,6 @@
 ---
-- hosts: web # hosts to be configured
+- name: Ansible Playbook to Install and Setup Apache on Ubuntu
+  hosts: web
   sudo: yes # sudo permissions
   tasks:
     - name: update
