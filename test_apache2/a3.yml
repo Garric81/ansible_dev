@@ -1,0 +1,11 @@
+---
+- hosts: web
+  gather_facts: true
+  become: true
+  tasks:
+    -
+      name: "1. Restart httpd service"
+      tags: restart_apache
+      service:
+        name: httpd
+        state: restarted

@@ -1,0 +1,37 @@
+---
+- hosts: web
+  gather_facts: true
+  become: true
+  tasks:
+    -
+      name: "1. Install Latest HTTPD/Apache"
+      tags: install_apache
+      yum:
+        name: httpd
+        state: present
+    -
+      name: "2. Copy dummy index.html file”
+      tags: copy_index_file
+      copy:
+        src: /tmp/index.html
+        dest: /var/www/html/index.html
+        mode: '0664'
+    - 
+      name: "3. Start httpd service"
+      tags: start_apache
+      service:
+        enabled: true
+        name: httpd
+        state: started
+    -
+      name: "4. Add apache ip table rule"
+      tags: addport80_iptable
+      # below is a one line command
+      # due to space issue I break it
+      # in two lines
+      command: "iptables -A INPUT -m state 
+      --state NEW -m tcp -p tcp --dport 80 -j ACCEPT"
+    -
+      name: "5. Save iptable rule"
+      tags: save_iptable
+      command: iptables-save
