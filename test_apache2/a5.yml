@@ -16,7 +16,7 @@
       command: 'apache2 -v'
       register: version
     - debug:
-      var: version.stdout_lines
+        var: version.stdout_lines
     - name: Remove Apache server from Ubuntu server.
       apt:
        name: apache2
