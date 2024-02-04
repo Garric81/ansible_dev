@@ -4,3 +4,6 @@
     - name: Get service facts
       setup:
         filter: 'ansible_os_family'
+    - name: Print all available facts
+      debug:
+        var: ansible_facts
