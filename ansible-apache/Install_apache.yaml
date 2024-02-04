@@ -1,6 +1,7 @@
 ---
 - name: Ansible Playbook to Install and Setup Apache on Ubuntu
   hosts: web
+  become: true
   sudo: yes # sudo permissions
   tasks:
     - name: update
