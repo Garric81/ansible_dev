@@ -6,7 +6,7 @@
     -
       name: "1. Install Latest HTTPD/Apache"
       tags: install_apache
-      yum:
+      apt:
         name: httpd
         state: present
     -
