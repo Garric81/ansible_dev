@@ -11,3 +11,7 @@
       ansible.builtin.service:
         name: httpd
         state: restarted
+    - name: Restart apache
+      ansible.builtin.service:
+        name: apache
+        state: restarted
