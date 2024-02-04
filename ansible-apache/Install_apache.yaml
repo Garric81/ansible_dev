@@ -5,6 +5,7 @@
   tasks:
     - name: Install latest version of Apache
       apt: name=apache2 update_cache=yes state=latest
+
     - name: enabled mod_rewrite
       apache2_module: name=rewrite state=present
       notify:
