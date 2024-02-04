@@ -1,16 +1,11 @@
 ---
-- name: Ansible Playbook to Install and Setup Apache on Ubuntu
-  hosts: web
-  become: true
+- hosts: web # hosts to be configured
+  sudo: yes # sudo permissions
   tasks:
-    - name: Install latest version of Apache
-      apt: name=apache2 update_cache=yes state=latest
-
-    - name: enabled mod_rewrite
-      apache2_module: name=rewrite state=present
-      notify:
-        - restart apache2
-
-      handlers:
-        - name: restart apache2
-          service: name=apache2 state=restarted
+    - name: update
+      apt: update_cache=yes
+    - name: install apache2
+      apt: name=apache2 state=present
+    - name: restart apache2
+      service: name=apache2 state=restarted
+    - debug: msg="apache has been installed"
