@@ -1,0 +1,9 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: false
+  tasks:
+  - name: Make sure systemd-resolved.service unit is running
+    ansible.builtin.systemd:
+      state: started
+      name: systemd-resolved.service
