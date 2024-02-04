@@ -1,5 +1,7 @@
 ---
-- hosts: web
+- name: Ansible Playbook to Install and Setup Apache on Ubuntu
+  hosts: web
+  become: true
   tasks:
-    - name: run echo command
-      command: /bin/echo hello k!
+    - name: Install latest version of Apache
+      apt: name=apache2 update_cache=yes state=latest
