@@ -21,3 +21,10 @@
   handlers:
     - name: restart apache2
       service: name=apache2 state=restarte
+
+    - name: Starting Apache Server
+      service:
+        name=httpd
+        state=stop
+      become: true
+      become_user: root
