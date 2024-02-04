@@ -11,8 +11,8 @@
       debug:
         var: ansible_facts.hostname
 
-    - name: Populate service facts
-      ansible.builtin.service_facts:
+ #   - name: Populate service facts
+ #     ansible.builtin.service_facts:
 
     - name: Print all available services
       debug:
